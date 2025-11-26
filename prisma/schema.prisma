@@ -42,6 +42,8 @@ model RoomType {
   images         String[]
   ratePlans      RatePlan[]
   seasons        Season[]   @relation("SeasonRoomTypes")
+  rooms          Room[]
+  bookings       Booking[]
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
 }
@@ -54,6 +56,7 @@ model Room {
   status     RoomStatus @default(ACTIVE)
   notes      String?
   closures   Closure[]
+  bookings   Booking[]
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
 }
@@ -103,6 +106,7 @@ model RatePlan {
   extras           Extra[]        @relation("RatePlanExtras")
   restrictions     Restriction[]
   coupons          Coupon[]       @relation("RatePlanCoupons")
+  bookings         Booking[]
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt
 }
