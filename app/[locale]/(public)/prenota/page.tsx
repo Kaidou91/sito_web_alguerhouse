@@ -21,7 +21,7 @@ export default function PrenotaPage() {
       <h1 className="text-3xl font-semibold text-primary-800">Prenota</h1>
       <div className="mt-4 grid gap-6 md:grid-cols-[2fr_1fr]">
         <div className="space-y-4">
-          <SearchForm onSearch={() => null} />
+          <SearchForm />
           <AvailabilityGrid rooms={rooms} search={search} />
           <ExtrasSelector extras={extras} />
         </div>

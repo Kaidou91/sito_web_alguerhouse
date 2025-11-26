@@ -9,12 +9,13 @@ export type SearchPayload = {
   guests: number;
 };
 
-export default function SearchForm({onSearch}: {onSearch?: (payload: SearchPayload) => void}) {
+export default function SearchForm() {
   const t = useTranslations();
   const [form, setForm] = useState<SearchPayload>({checkIn: '', checkOut: '', guests: 2});
 
   const handleSearch = () => {
-    onSearch?.(form);
+    // Placeholder handler to illustrate form submission
+    console.log('Search submitted', form);
   };
 
   return (
