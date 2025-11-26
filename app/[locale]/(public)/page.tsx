@@ -78,7 +78,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-semibold text-primary-800">{t('section_booking_title')}</h2>
             <p className="mt-2 text-primary-700">Wizard semplificato per ricerca disponibilità, extra e pagamento sicuro.</p>
             <div className="mt-4 space-y-4">
-              <SearchForm onSearch={() => null} />
+              <SearchForm />
               <AvailabilityGrid rooms={mockRooms} search={search} />
               <ExtrasSelector extras={mockExtras} />
             </div>

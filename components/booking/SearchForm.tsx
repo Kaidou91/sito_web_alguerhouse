@@ -9,9 +9,13 @@ export type SearchPayload = {
   guests: number;
 };
 
-export default function SearchForm({onSearch}: {onSearch: (payload: SearchPayload) => void}) {
+export default function SearchForm({onSearch}: {onSearch?: (payload: SearchPayload) => void}) {
   const t = useTranslations();
   const [form, setForm] = useState<SearchPayload>({checkIn: '', checkOut: '', guests: 2});
+
+  const handleSearch = () => {
+    onSearch?.(form);
+  };
 
   return (
     <div className="card p-6">
@@ -44,7 +48,7 @@ export default function SearchForm({onSearch}: {onSearch: (payload: SearchPayloa
             className="mt-1 w-full rounded-lg border border-primary-100 px-3 py-2"
           />
         </div>
-        <button className="btn-primary" onClick={() => onSearch(form)}>
+        <button className="btn-primary" onClick={handleSearch}>
           {t('booking_submit')}
         </button>
       </div>
