@@ -10,11 +10,13 @@ Documentazione iniziale per l'implementazione del sito di prenotazioni multiling
 Per i passi di avvio locale e dettagli su schema Prisma, flusso booking, palette, font e seed iniziale, vedere il documento in `docs/ARCHITECTURE.md`.
 
 ## Avvio locale rapido
-1. Copia il file degli esempi ambiente sia in `.env` (usato da Prisma) che in `.env.local` (usato da Next.js) e compila i valori (es. `DATABASE_URL`, `NEXTAUTH_SECRET`, Stripe, Resend, GA4):
+1. Copia il file degli esempi ambiente sia in `.env` (usato da Prisma) che in `.env.local` (usato da Next.js) e compila i valori (es. `DATABASE_URL`, `NEXTAUTH_SECRET`, Stripe, Resend, GA4). Per `DATABASE_URL` sostituisci utente, password, host, porta e nome del database del tuo server PostgreSQL in esecuzione, ad esempio:
    ```bash
    cp .env.example .env
    cp .env.example .env.local
+   # esempio locale: postgresql://postgres:password@localhost:5432/alguerhouse
    ```
 2. Installa le dipendenze: `npm install`.
-3. Esegui le migrazioni Prisma: `npx prisma migrate dev`.
-4. Avvia il server di sviluppo: `npm run dev` e apri `http://localhost:3000`.
+3. Assicurati che PostgreSQL sia avviato e raggiungibile all'host/porta indicati nella variabile `DATABASE_URL`.
+4. Esegui le migrazioni Prisma: `npx prisma migrate dev`.
+5. Avvia il server di sviluppo: `npm run dev` e apri `http://localhost:3000`.
